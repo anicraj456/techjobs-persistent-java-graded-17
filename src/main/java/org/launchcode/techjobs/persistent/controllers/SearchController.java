@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 import static org.launchcode.techjobs.persistent.controllers.ListController.columnChoices;
 
 /**
@@ -30,7 +32,10 @@ public class SearchController {
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
         Iterable<Job> jobs;
-        if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
+
+        ArrayList<Job> tempJobs = (ArrayList<Job>) jobRepository.findAll();
+        Job job = tempJobs.get(0);
+        if (searchType.toLowerCase().equals("all") || searchType.equals("")){
             jobs = jobRepository.findAll();
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm, jobRepository.findAll());

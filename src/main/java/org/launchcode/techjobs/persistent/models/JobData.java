@@ -36,7 +36,6 @@ public class JobData {
         for (Job job : allJobs) {
 
             String aValue = getFieldValue(job, column);
-
             if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
                 results.add(job);
             }
@@ -74,9 +73,9 @@ public class JobData {
 
             if (job.getName().toLowerCase().contains(value.toLowerCase())) {
                 results.add(job);
-            } else if (job.getEmployer().toString().toLowerCase().contains(value.toLowerCase())) {
+            } else if (null !=job.getEmployer() && job.getEmployer().toString().toLowerCase().contains(value.toLowerCase())) {
                 results.add(job);
-            } else if (job.getSkills().toString().toLowerCase().contains(value.toLowerCase())) {
+            } else if (null!=job.getSkills() && job.getSkills().toString().toLowerCase().contains(value.toLowerCase())) {
                 results.add(job);
             }
 
