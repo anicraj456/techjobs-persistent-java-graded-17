@@ -4,6 +4,8 @@ import org.launchcode.techjobs.persistent.models.Employer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+// Data Layer --task 3
+
 @Repository
 public interface EmployerRepository extends CrudRepository <Employer, Integer>{
 

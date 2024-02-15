@@ -13,6 +13,8 @@ import java.util.Objects;
 @MappedSuperclass
 public abstract class AbstractEntity {
 
+    // AbstarctEntity --task 1
+
     @Id
     @GeneratedValue
     private int id;

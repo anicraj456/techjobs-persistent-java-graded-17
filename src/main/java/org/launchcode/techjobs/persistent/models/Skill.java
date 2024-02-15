@@ -12,9 +12,12 @@ import java.util.List;
 @Entity
 public class Skill extends AbstractEntity {
 
+    //Models--task 2
+
     @Size(max = 500, message = "Description too long!")
     private String description;
 
+    // Task 8
     @ManyToMany(mappedBy = "skills")
     private List<Job> jobs = new ArrayList<>();
 

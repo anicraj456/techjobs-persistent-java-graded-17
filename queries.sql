@@ -19,6 +19,7 @@ DROP TABLE job;
 --Part 4
 --the names of all skills that are attached to jobs in alphabetical order.
 --If a skill does not have a job listed, it should not be included in the results of this query.
+
 SELECT *
 FROM skill
 INNER JOIN job_skills ON skill.id = job_skills.skills_id

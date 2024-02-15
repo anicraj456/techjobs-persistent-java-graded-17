@@ -9,9 +9,13 @@ import java.util.List;
 @Entity
 public class Job extends AbstractEntity{
 
+    // Update Job Model --task 6/1-2
+
     @ManyToOne
     @JoinColumn(name = "employer_id")
     private Employer employer;
+
+    //Update job.skills --task 9
 
     @ManyToMany
     @JoinColumn(name = "skills")

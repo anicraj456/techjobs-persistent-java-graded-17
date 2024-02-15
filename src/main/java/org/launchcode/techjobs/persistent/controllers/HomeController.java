@@ -24,12 +24,15 @@ import java.util.Optional;
 @Controller
 public class HomeController {
 
+    // Task 7
+
     @Autowired
     private EmployerRepository employerRepository;
     @Autowired
     private SkillRepository skillRepository;
     @Autowired
     private JobRepository jobRepository;
+
 
     @RequestMapping("/")
     public String index(Model model) {
@@ -38,6 +41,7 @@ public class HomeController {
         return "jobs/index";
     }
 
+    //task 10/1
     @GetMapping("add")
     public String displayAddJobForm(Model model) {
 	model.addAttribute("title", "Add Job");
@@ -47,6 +51,7 @@ public class HomeController {
         return "jobs/add";
     }
 
+    // Task 7/4, 10/2
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                        Errors errors, Model model, @RequestParam int employerId,
@@ -56,6 +61,7 @@ public class HomeController {
 	    model.addAttribute("title", "Add Job");
             return "add";
         }
+        //added..
         Optional<Employer> employer = employerRepository.findById(employerId);
         if(employer.isPresent()){
             newJob.setEmployer(employer.get());
@@ -68,6 +74,7 @@ public class HomeController {
 
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
+        //added
         Optional<Job> optionalJob = jobRepository.findById(jobId);
         if (optionalJob.isPresent()) {
             Job job = (Job) optionalJob.get();

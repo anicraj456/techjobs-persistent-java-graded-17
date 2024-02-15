@@ -17,9 +17,11 @@ import java.util.Optional;
 @RequestMapping("employers")
 public class EmployerController {
 
+    // Controllers--task 4/1
     @Autowired
     private EmployerRepository employerRepository;
 
+    // Controllers--task 4/2
 
     @GetMapping("/")
     public String index(Model model) {
@@ -35,6 +37,8 @@ public class EmployerController {
         return "employers/add";
     }
 
+    // Controllers--task 4/3
+
     @PostMapping("add")
     public String processAddEmployerForm(@ModelAttribute @Valid Employer newEmployer,
                                     Errors errors, Model model) {
@@ -46,6 +50,8 @@ public class EmployerController {
         employerRepository.save(newEmployer);
         return "redirect:/employers/";
     }
+
+    // Controllers--task 4/4
 
     @GetMapping("view/{employerId}")
     public String displayViewEmployer(Model model, @PathVariable int employerId) {

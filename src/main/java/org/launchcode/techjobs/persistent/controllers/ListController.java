@@ -25,6 +25,7 @@ import java.util.List;
 @RequestMapping(value = "list")
 public class ListController {
 
+    // Task 11/1
     @Autowired
     private JobRepository jobRepository;
 
@@ -47,7 +48,7 @@ public class ListController {
     @RequestMapping("")
     public String list(Model model) {
 
-        //added this
+        //task 11/2 added this
         List<Employer> employers = new ArrayList<>();
         model.addAttribute("employers", employerRepository.findAll());
 
